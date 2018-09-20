@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Book from './Book';
 
 class Shelf extends Component {
 
@@ -6,7 +7,12 @@ class Shelf extends Component {
     return (
       <div className="bookshelf">
           <h1 className="bookshelf-title">{this.props.shelfName}</h1>
-      </div>)
+
+        <div className="bookshelf-books">
+        <Book />
+        </div>
+      </div>
+    )
   }
 
 
