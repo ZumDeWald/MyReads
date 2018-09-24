@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import * as BooksAPI from './BooksAPI'
 import MoveOptions from './MoveOptions';
 
 class Book extends Component {
@@ -18,7 +17,7 @@ class Book extends Component {
             <div className="book">
               <div className="book-top">
 
-                <img className="book-cover" alt={book.title} style={{ width: 128, height: 193}} src={book.imageLinks.smallThumbnail} />
+                <div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
 
                 <MoveOptions
                   bookBinder={book}

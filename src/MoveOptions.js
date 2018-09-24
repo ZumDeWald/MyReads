@@ -13,7 +13,7 @@ class MoveOptions extends Component {
         <select>
 
           <option value="move" disabled>Move to...</option>
-          
+
           <option value="none">None</option>
 
           <option value="currentlyReading"
