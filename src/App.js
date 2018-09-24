@@ -4,12 +4,6 @@ import './App.css';
 import MainPage from './MainPage';
 
 class BooksApp extends React.Component {
-  shelves = [
-    {id: 'currentlyReading'},
-    {id: 'wantToRead'},
-    {id: 'read'},
-    {id: 'none'}
-  ]
 
   state = {
     books: [],
@@ -30,9 +24,15 @@ class BooksApp extends React.Component {
     .catch((error) => console.log(error))
   }
 
-  ChangeShelf = (book, newShelf) => {
-    book.id = `${newShelf}`
+  changeShelf = (bookID, newShelf) => {
+      BooksAPI.update(bookID, newShelf);
+      BooksAPI.getAll()
+      .then((books) => {
+        this.setState({ books });
+      })
+      .catch((error) => console.log(error))
   }
+
 
   render() {
 
@@ -40,7 +40,9 @@ class BooksApp extends React.Component {
       <div className="app">
 
           <MainPage
-          books= {this.state.books} />
+          books= {this.state.books}
+          changeShelf = {this.changeShelf}
+        />
 
       </div>
     )

@@ -16,18 +16,25 @@ class MainPage extends Component {
         <div className="list-books-content">
 
             <div className="bookshelf">
+
               <Shelf shelfName='Currently Reading'
-                books={books.filter( (book) => book.shelf === 'currentlyReading')}/>
+                books={books.filter( (book) => book.shelf === 'currentlyReading')}
+                changeShelf = {this.props.changeShelf}
+              />
             </div>
 
             <div className="bookshelf">
               <Shelf shelfName='Want To Read'
-              books={books.filter( (book) => book.shelf === 'wantToRead')}/>
+              books={books.filter( (book) => book.shelf === 'wantToRead')}
+              changeShelf = {this.props.changeShelf}
+            />
             </div>
 
             <div className="bookshelf">
               <Shelf shelfName='Read'
-              books={books.filter( (book) => book.shelf === 'read')}/>
+              books={books.filter( (book) => book.shelf === 'read')}
+              changeShelf = {this.props.changeShelf}
+            />
             </div>
 
         </div>

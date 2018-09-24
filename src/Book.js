@@ -6,7 +6,6 @@ class Book extends Component {
 
   render() {
     const { books } = this.props;
-    console.log(books)
 
     return(
 
@@ -22,6 +21,7 @@ class Book extends Component {
 
                 <MoveOptions
                   bookBinder={book}
+                  changeShelf = {this.props.changeShelf}
                 />
 
               </div>
