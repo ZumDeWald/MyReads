@@ -12,6 +12,7 @@ class MoveOptions extends Component {
           onChange={
             (e) => {
               this.props.changeShelf(this.props.book, e.target.value);
+              
             }
           }
           >
