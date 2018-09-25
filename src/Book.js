@@ -30,7 +30,7 @@ class Book extends Component {
               </div>
 
               <div className="book-title">{book.title}</div>
-              <div className="book-authors">{book.authors[0]}</div>
+              <div className="book-authors">{book.authors}</div>
 
             </div>
 

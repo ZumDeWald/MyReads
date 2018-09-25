@@ -21,7 +21,7 @@ class Search extends Component {
   }
 
   updateQuery = (query) => {
-    this.setState({ query : query.trim() });
+    this.setState({ query : query });
     this.checkResults(query)
   }
 
@@ -41,7 +41,7 @@ class Search extends Component {
   render () {
     // *Used destructuring throughout to simplify code
     const { changeShelf } = this.props;
-    const { searchResults } = this.state;
+    const { searchResults, query } = this.state;
 
 
 
@@ -58,7 +58,7 @@ class Search extends Component {
             <input
               type="text"
               placeholder="Search by title or author"
-              value={this.state.query}
+              value={query}
               onChange={(e) => this.updateQuery(e.target.value)}
             />
 
@@ -75,7 +75,7 @@ class Search extends Component {
                 <div className="book">
                   <div className="book-top">
 
-                    <div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
+                    <img className="book-cover" src= {book.imageLinks.smallThumbnail} alt={book.title} style={{ width: 128, height: 193}} />
 
                     <MoveOptions
                       book={book}
@@ -84,6 +84,7 @@ class Search extends Component {
 
                   </div>
                   <div className="book-title">{book.title}</div>
+                  <div className="book-authors">{book.authors}</div>
 
                 </div>
 
