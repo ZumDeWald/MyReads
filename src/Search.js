@@ -37,9 +37,6 @@ class Search extends Component {
     }})
   }
 
-  changeShelf = (book, newShelf) => {
-      BooksAPI.update(book, newShelf);
-  }
 
   render () {
 
@@ -79,7 +76,7 @@ class Search extends Component {
 
                     <MoveOptions
                       book={book}
-                      changeShelf = {this.changeShelf}
+                      changeShelf = {this.props.changeShelf}
                     />
 
                   </div>
