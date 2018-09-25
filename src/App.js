@@ -21,13 +21,17 @@ class BooksApp extends React.Component {
     .catch((error) => console.log(error))
   }
 
-  changeShelf = (bookID, newShelf) => {
-      BooksAPI.update(bookID, newShelf).then(
-      BooksAPI.getAll()
-      .then((books) => {
-        this.setState({ books });
-      }))
-      .catch((error) => console.log(error))
+  updateLocalBooks = (book, newShelf) => {
+    
+  }
+
+  changeShelf = (book, newShelf) => {
+    BooksAPI.update(book, newShelf).then(
+    BooksAPI.getAll()
+    .then((books) => {
+      this.setState({ books });
+    }))
+    .catch((error) => console.log(error))
   }
 
 

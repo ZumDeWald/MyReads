@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 
 class MoveOptions extends Component {
 
-  state = {
-    books: []
-  }
-
-
   render () {
 
     return(

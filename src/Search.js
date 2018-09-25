@@ -22,14 +22,14 @@ class Search extends Component {
 
   updateQuery = (query) => {
     this.setState({ query : query.trim() });
-      this.checkResults()
+    this.checkResults(query)
   }
 
-  checkResults() {
-    if (this.state.query === '' || this.state.query === undefined) {
+  checkResults(toCheck) {
+    if (toCheck === '' || toCheck === undefined) {
       return this.setState({ searchResults: [] });
     }
-    BooksAPI.search(this.state.query).then(res => {
+    BooksAPI.search(toCheck).then(res => {
       if(res.error) {
         return this.setState({ searchResults: [] })
       } else {
@@ -37,13 +37,8 @@ class Search extends Component {
     }})
   }
 
-  changeShelf = (bookID, newShelf) => {
-      BooksAPI.update(bookID, newShelf);
-      BooksAPI.getAll()
-      .then((books) => {
-        this.setState({ books });
-      })
-      .catch((error) => console.log(error))
+  changeShelf = (book, newShelf) => {
+      BooksAPI.update(book, newShelf);
   }
 
   render () {
@@ -74,7 +69,7 @@ class Search extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
 
-            { (this.state.searchResults) && (this.state.searchResults.map( (book, index) => (
+            {this.state.searchResults.map( (book, index) => (
               <li key={index}>
 
                 <div className="book">
@@ -93,7 +88,7 @@ class Search extends Component {
                 </div>
 
               </li>
-            )))
+            ))
           }
 
           </ol>
