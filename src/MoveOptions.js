@@ -3,16 +3,17 @@ import React, { Component } from 'react';
 class MoveOptions extends Component {
 
   render () {
+    const { book, changeShelf } = this.props;
 
     return(
       <div className="book-shelf-changer">
 
         <select
-          value = {this.props.book.shelf || 'none'}
+          value = {book.shelf || 'none'}
           onChange={
             (e) => {
-              this.props.changeShelf(this.props.book, e.target.value);
-              
+              changeShelf(book, e.target.value);
+
             }
           }
           >

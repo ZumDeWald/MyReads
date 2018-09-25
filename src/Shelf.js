@@ -4,15 +4,16 @@ import Book from './Book';
 class Shelf extends Component {
 
   render () {
+    const { shelfName, books, changeShelf } = this.props;
 
     return (
       <div className="bookshelf">
-          <h1 className="bookshelf-title">{this.props.shelfName}</h1>
+          <h1 className="bookshelf-title">{shelfName}</h1>
 
         <div className="bookshelf-books">
           <Book
-          books={this.props.books}
-          changeShelf = {this.props.changeShelf}
+          books={books}
+          changeShelf = {changeShelf}
         />
         </div>
 

@@ -5,7 +5,7 @@ class Book extends Component {
 
 
   render() {
-    const { books } = this.props;
+    const { books, changeShelf } = this.props;
 
     return(
 
@@ -21,7 +21,7 @@ class Book extends Component {
 
                 <MoveOptions
                   book={book}
-                  changeShelf = {this.props.changeShelf}
+                  changeShelf = {changeShelf}
                 />
 
               </div>
