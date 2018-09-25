@@ -5,7 +5,10 @@ import { Link } from 'react-router-dom';
 class MainPage extends Component {
 
   render () {
+    
+    // *Used destructuring throughout to simplify code
     const { books, changeShelf } = this.props;
+
 
     return (
       <div className="list-books">
@@ -45,6 +48,7 @@ class MainPage extends Component {
           <Link to={{ pathname: '/search'}}></Link>
 
         </div>
+
       </div>
     )
   }

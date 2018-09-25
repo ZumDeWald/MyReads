@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 class MoveOptions extends Component {
 
   render () {
+    // *Used destructuring throughout to simplify code
     const { book, changeShelf } = this.props;
 
     return(

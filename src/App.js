@@ -44,6 +44,7 @@ class BooksApp extends React.Component {
 
 
   render() {
+    // *Used destructuring throughout to simplify code
     const { books } = this.state;
 
     return (

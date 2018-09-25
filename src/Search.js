@@ -39,6 +39,7 @@ class Search extends Component {
 
 
   render () {
+    // *Used destructuring throughout to simplify code
     const { changeShelf } = this.props;
     const { searchResults } = this.state;
 
