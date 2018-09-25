@@ -11,7 +11,6 @@ class BooksApp extends React.Component {
 
   state = {
     books: [],
-    showSearchPage: false
   }
 
   componentDidMount() {
@@ -23,11 +22,11 @@ class BooksApp extends React.Component {
   }
 
   changeShelf = (bookID, newShelf) => {
-      BooksAPI.update(bookID, newShelf);
+      BooksAPI.update(bookID, newShelf).then(
       BooksAPI.getAll()
       .then((books) => {
         this.setState({ books });
-      })
+      }))
       .catch((error) => console.log(error))
   }
 

@@ -20,7 +20,7 @@ class Book extends Component {
                 <div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`}}></div>
 
                 <MoveOptions
-                  bookBinder={book}
+                  book={book}
                   changeShelf = {this.props.changeShelf}
                 />
 
