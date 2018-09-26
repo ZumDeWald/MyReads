@@ -19,27 +19,20 @@ class MainPage extends Component {
 
         <div className="list-books-content">
 
-            <div className="bookshelf">
-
               <Shelf shelfName='Currently Reading'
                 books={books.filter( (book) => book.shelf === 'currentlyReading')}
                 changeShelf = {changeShelf}
               />
-            </div>
 
-            <div className="bookshelf">
               <Shelf shelfName='Want To Read'
               books={books.filter( (book) => book.shelf === 'wantToRead')}
               changeShelf = {changeShelf}
             />
-            </div>
 
-            <div className="bookshelf">
               <Shelf shelfName='Read'
               books={books.filter( (book) => book.shelf === 'read')}
               changeShelf = {changeShelf}
             />
-            </div>
 
         </div>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI'
 import MoveOptions from './MoveOptions';
+import Shelf from './Shelf';
 import { Link } from 'react-router-dom';
 
 
@@ -9,6 +10,7 @@ class Search extends Component {
   state = {
     books: [],
     searchResults: [],
+    booksAlreadyOnShelf: [],
     query: ''
   }
 
@@ -44,7 +46,6 @@ class Search extends Component {
     const { searchResults, query } = this.state;
 
 
-
     return (
 
       <div className="search-books">
@@ -67,32 +68,13 @@ class Search extends Component {
         </div>
 
         <div className="search-books-results">
-          <ol className="books-grid">
 
-            {searchResults.map( (book, index) => (
-              <li key={index}>
+            <Shelf
+              shelfName = "All Results:"
+              books = {this.state.searchResults}
+              changeShelf = {changeShelf}
+            />
 
-                <div className="book">
-                  <div className="book-top">
-
-                    <img className="book-cover" src= {book.imageLinks.smallThumbnail} alt={book.title} style={{ width: 128, height: 193}} />
-
-                    <MoveOptions
-                      book={book}
-                      changeShelf = {changeShelf}
-                    />
-
-                  </div>
-                  <div className="book-title">{book.title}</div>
-                  <div className="book-authors">{book.authors}</div>
-
-                </div>
-
-              </li>
-            ))
-          }
-
-          </ol>
         </div>
 
       </div>
