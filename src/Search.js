@@ -32,6 +32,9 @@ class Search extends Component {
       return this.setState({ searchResults: [] });
     }
     BooksAPI.search(toCheck).then(response => {
+      if(response.error) {
+        return this.setState({ searchResults: [] })
+      }
       response.forEach(book => {
         const filteredBook = this.state.books.filter( i => i.id === book.id);
           if (filteredBook.length > 0) {
