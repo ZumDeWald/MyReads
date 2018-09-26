@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI'
 import MoveOptions from './MoveOptions';
-import Shelf from './Shelf';
+import Book from './Book';
 import { Link } from 'react-router-dom';
 
 
@@ -48,34 +48,28 @@ class Search extends Component {
     return (
 
       <div className="search-books">
-
         <div className="search-books-bar">
 
             <Link className="close-search" to={{ pathname: '/'}}>Close</Link>
 
           <div className="search-books-input-wrapper">
-
             <input
               type="text"
               placeholder="Search by title or author"
               value={query}
               onChange={(e) => this.updateQuery(e.target.value)}
             />
-
           </div>
-
         </div>
 
         <div className="search-books-results">
 
-            <Shelf
-              shelfName = "All Results:"
+            <Book
               books = {this.state.searchResults}
               changeShelf = {changeShelf}
             />
 
         </div>
-
       </div>
     )
   }
