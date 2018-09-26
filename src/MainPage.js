@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 class MainPage extends Component {
 
   render () {
-    
+
     // *Used destructuring throughout to simplify code
     const { books, changeShelf } = this.props;
 

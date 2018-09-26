@@ -29,6 +29,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+This repository contains code written for Udacty's Front End Web Developer (FEND) NanoDegree, therefore it will not be accepting any pull requests.
 
 For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
