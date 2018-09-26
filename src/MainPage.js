@@ -2,14 +2,7 @@ import React, { Component } from 'react';
 import Shelf from './Shelf';
 import { Link } from 'react-router-dom';
 
-class MainPage extends Component {
-
-  render () {
-
-    // *Used destructuring throughout to simplify code
-    const { books, changeShelf } = this.props;
-
-
+function MainPage(props) {
     return (
       <div className="list-books">
 
@@ -20,18 +13,18 @@ class MainPage extends Component {
         <div className="list-books-content">
 
               <Shelf shelfName='Currently Reading'
-                books = {books.filter( (book) => book.shelf === 'currentlyReading')}
-                changeShelf = {changeShelf}
+                books = {props.books.filter( (book) => book.shelf === 'currentlyReading')}
+                changeShelf = {props.changeShelf}
               />
 
               <Shelf shelfName='Want To Read'
-              books = {books.filter( (book) => book.shelf === 'wantToRead')}
-              changeShelf = {changeShelf}
+              books = {props.books.filter( (book) => book.shelf === 'wantToRead')}
+              changeShelf = {props.changeShelf}
             />
 
               <Shelf shelfName='Read'
-              books = {books.filter( (book) => book.shelf === 'read')}
-              changeShelf = {changeShelf}
+              books = {props.books.filter( (book) => book.shelf === 'read')}
+              changeShelf = {props.changeShelf}
             />
 
         </div>
@@ -45,7 +38,5 @@ class MainPage extends Component {
     )
   }
 
-
-}
 
 export default MainPage

@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 
-class MoveOptions extends Component {
-
-  render () {
-    // *Used destructuring throughout to simplify code
-    const { book, changeShelf } = this.props;
+function MoveOptions (props) {
 
     return(
       <div className="book-shelf-changer">
         <select
-          value={book.shelf || 'none'}
+          value={props.book.shelf || 'none'}
           onChange={
             (e) => {
-              changeShelf(book, e.target.value);
+              props.changeShelf(props.book, e.target.value);
             }}>
 
           <option value="move" disabled>Move to...</option>
@@ -27,7 +23,5 @@ class MoveOptions extends Component {
 
   }
 
-
-}
 
 export default MoveOptions

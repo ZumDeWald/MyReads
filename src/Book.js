@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import MoveOptions from './MoveOptions';
 
-class Book extends Component {
-
-
-  render() {
-
-    // *Used destructuring throughout to simplify code
-    const { books, changeShelf } = this.props;
-
+function Book (props) {
 
     return(
 
       <ol className="books-grid">
 
-        {books.map( (book, index) => (
+        {props.books.map( (book, index) => (
           <li key={index}>
             <div className="book">
               <div className="book-top">
@@ -29,7 +22,7 @@ class Book extends Component {
 
                 <MoveOptions
                   book = {book}
-                  changeShelf = {changeShelf}
+                  changeShelf = {props.changeShelf}
                 />
 
               </div>
@@ -45,7 +38,5 @@ class Book extends Component {
     )
   }
 
-
-}
 
 export default Book
