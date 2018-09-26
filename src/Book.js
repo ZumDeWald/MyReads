@@ -16,20 +16,19 @@ class Book extends Component {
 
         {books.map( (book, index) => (
           <li key={index}>
-
             <div className="book">
               <div className="book-top">
 
-
                 { /* Ternary to check if image exists and replace if not */
-                  ((book.imageLinks) !== undefined) ?
+                  (book.imageLinks) ?
 
-                   (<div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`, backgroundSize: `cover`}}></div>) :
-
-                   (<div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(http://via.placeholder.com/128x193?text=No%20Cover)`, backgroundSize: `cover`}}></div>) }
+                   (<div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`, backgroundSize: `cover`}}></div>)
+                   :
+                   (<div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(http://via.placeholder.com/128x193?text=No%20Cover)`, backgroundSize: `cover`}}></div>)
+                 /* End of Ternary */}
 
                 <MoveOptions
-                  book={book}
+                  book = {book}
                   changeShelf = {changeShelf}
                 />
 
@@ -39,7 +38,6 @@ class Book extends Component {
               <div className="book-authors">{book.authors}</div>
 
             </div>
-
           </li>
         ))}
 

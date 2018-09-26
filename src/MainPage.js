@@ -20,17 +20,17 @@ class MainPage extends Component {
         <div className="list-books-content">
 
               <Shelf shelfName='Currently Reading'
-                books={books.filter( (book) => book.shelf === 'currentlyReading')}
+                books = {books.filter( (book) => book.shelf === 'currentlyReading')}
                 changeShelf = {changeShelf}
               />
 
               <Shelf shelfName='Want To Read'
-              books={books.filter( (book) => book.shelf === 'wantToRead')}
+              books = {books.filter( (book) => book.shelf === 'wantToRead')}
               changeShelf = {changeShelf}
             />
 
               <Shelf shelfName='Read'
-              books={books.filter( (book) => book.shelf === 'read')}
+              books = {books.filter( (book) => book.shelf === 'read')}
               changeShelf = {changeShelf}
             />
 
@@ -41,7 +41,6 @@ class MainPage extends Component {
           <Link to={{ pathname: '/search'}}></Link>
 
         </div>
-
       </div>
     )
   }

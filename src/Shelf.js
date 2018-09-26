@@ -14,12 +14,13 @@ class Shelf extends Component {
           <h1 className="bookshelf-title">{shelfName}</h1>
 
         <div className="bookshelf-books">
-          <Book
-          books={books}
-          changeShelf = {changeShelf}
-        />
-        </div>
 
+          <Book
+          books = {books}
+          changeShelf = {changeShelf}
+          />
+
+        </div>
       </div>
     )
   }
