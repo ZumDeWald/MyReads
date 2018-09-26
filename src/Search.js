@@ -10,7 +10,6 @@ class Search extends Component {
   state = {
     books: [],
     searchResults: [],
-    booksAlreadyOnShelf: [],
     query: ''
   }
 

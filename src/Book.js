@@ -20,7 +20,13 @@ class Book extends Component {
             <div className="book">
               <div className="book-top">
 
-                <div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`, backgroundSize: `cover`}}></div>
+
+                { /* Ternary to check if image exists and replace if not */
+                  ((book.imageLinks) !== undefined) ?
+
+                   (<div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(${book.imageLinks.smallThumbnail})`, backgroundSize: `cover`}}></div>) :
+
+                   (<div className="book-cover" alt={book.title} style={{ width: 128, height: 193, backgroundImage: `url(http://via.placeholder.com/128x193?text=No%20Cover)`, backgroundSize: `cover`}}></div>) }
 
                 <MoveOptions
                   book={book}
