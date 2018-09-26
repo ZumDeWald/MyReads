@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import * as BooksAPI from './BooksAPI'
-import MoveOptions from './MoveOptions';
 import Book from './Book';
 import { Link } from 'react-router-dom';
 
@@ -30,12 +29,16 @@ class Search extends Component {
     if (toCheck === '' || toCheck === undefined) {
       return this.setState({ searchResults: [] });
     }
-    BooksAPI.search(toCheck).then(res => {
-      if(res.error) {
-        return this.setState({ searchResults: [] })
-      } else {
-      return this.setState({ searchResults: res });
-    }})
+    BooksAPI.search(toCheck).then(response => {
+
+      response.forEach(book => {
+        const filteredBook = this.state.books.filter( i => i.id === book.id);
+          if (filteredBook.length > 0) {
+            book.shelf = filteredBook[0].shelf;
+            }
+      });
+      return this.setState({ searchResults: response });
+   });
   }
 
 
@@ -65,7 +68,7 @@ class Search extends Component {
         <div className="search-books-results">
 
             <Book
-              books = {this.state.searchResults}
+              books = {searchResults}
               changeShelf = {changeShelf}
             />
 
