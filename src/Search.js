@@ -7,17 +7,8 @@ import { Link } from 'react-router-dom';
 class Search extends Component {
 
   state = {
-    books: [],
     searchResults: [],
     query: ''
-  }
-
-  componentDidMount() {
-    BooksAPI.getAll()
-    .then((books) => {
-      this.setState({ books });
-    })
-    .catch((error) => console.log(error))
   }
 
   //updateQuery listens for the change in input and sets state, then triggers result chain
@@ -36,7 +27,7 @@ class Search extends Component {
         return this.setState({ searchResults: [] })
       }
       response.forEach(book => {
-        const filteredBook = this.state.books.filter( i => i.id === book.id);
+        const filteredBook = this.props.books.filter( i => i.id === book.id);
           if (filteredBook.length > 0) {
             book.shelf = filteredBook[0].shelf;
             }
